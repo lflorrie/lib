@@ -1,4 +1,3 @@
-
 FLAGS = -Wall -Wextra -Werror
 SRC = ft_atoi.c \
 	ft_bzero.c \
@@ -45,7 +44,7 @@ SRC = ft_atoi.c \
 	ft_lstiter.c \
 	ft_lstmap.c
 NAME = libft.a
-
+.PHONY:all $(NAME) clean fclean re
 SRCS = $(addprefix src/, $(SRC))
 OBJ = $(SRC:.c=.o)
 INCLUDE = include/
