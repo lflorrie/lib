@@ -304,7 +304,7 @@ void testAtoi()
 
 void	testCalloc()
 {
-	//easy?
+	ft_calloc(10, 4);
 }
 
 void testMemCCpy()
@@ -706,11 +706,53 @@ void testLstClear()
 	 	assert(ft_lstsize(list) == 0);
 	 	assert(list == NULL);
 	}
+	{
+		t_list *list = NULL;
+		ft_lstclear(&list, p_del);
+		assert(list == NULL);
+	}
+	{
+		t_list *list = ft_lstnew(NULL);
+		ft_lstclear(&list, p_del);
+		assert(list == NULL);
+	}
+
+}
+
+void sqr(void *el)
+{
+	int *temp = (int*)(el);
+	*temp *= *temp;
+	el = (void*)temp;
 }
 
 void testLstIter()
 {
+	void (*f)(void *);
+	f = sqr;
+	{
+		int a = 2, b = 3, c = 5;
+		int		*ch = &a;
+		int		*ch1 = &b;
+		int		*ch2 = &c;
+		t_list	*list;
+		t_list	*new1;
+		t_list	*new2;
+	 	
+	 	list = ft_lstnew((void*)ch);
+	 	new1 = ft_lstnew((void*)ch1);
+	 	new2 = ft_lstnew((void*)ch2);
 
+	 	ft_lstadd_back(&list, new1);
+	 	ft_lstadd_back(&list, new2);
+
+	 	ft_lstiter(list, f);
+	 	assert(*(int*)list->content == 4);
+	 	list = list->next;
+	 	assert(*(int*)list->content == 9);
+	 	list = list->next;
+	 	assert(*(int*)list->content == 25);
+	}
 }
 
 void testLstMap()

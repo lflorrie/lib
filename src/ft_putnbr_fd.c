@@ -6,7 +6,7 @@
 /*   By: lflorrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 17:40:45 by lflorrie          #+#    #+#             */
-/*   Updated: 2020/10/28 17:40:46 by lflorrie         ###   ########.fr       */
+/*   Updated: 2020/11/01 15:33:58 by lflorrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ void	ft_putnbr_fd(int n, int fd)
 
 	num = ft_itoa(n);
 	ft_putstr_fd(num, fd);
-	free(num);	
+	free(num);
 }

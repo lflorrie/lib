@@ -6,7 +6,7 @@
 /*   By: lflorrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 17:39:52 by lflorrie          #+#    #+#             */
-/*   Updated: 2020/10/28 17:39:53 by lflorrie         ###   ########.fr       */
+/*   Updated: 2020/11/01 15:32:42 by lflorrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ static size_t	len(int n)
 	return (i);
 }
 
-char*			ft_itoa(int nn)
+char			*ft_itoa(int nn)
 {
-	char*		result;
+	char		*result;
 	size_t		i;
 	int			sign;
 	long int	n;
@@ -48,7 +48,7 @@ char*			ft_itoa(int nn)
 	while (i > 0)
 	{
 		--i;
-		result[i] = (char) (n % 10 + '0');
+		result[i] = (char)(n % 10 + '0');
 		n /= 10;
 	}
 	if (sign)

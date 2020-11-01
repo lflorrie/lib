@@ -6,12 +6,12 @@
 /*   By: lflorrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 17:29:44 by lflorrie          #+#    #+#             */
-/*   Updated: 2020/10/28 17:29:52 by lflorrie         ###   ########.fr       */
+/*   Updated: 2020/11/01 14:59:24 by lflorrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
-	return (c >= (int)'a' && c <= (int)'z') ||
-			((c >= (int)'A' && c <= (int)'Z'));
+	return ((c >= (int)'a' && c <= (int)'z') ||
+			((c >= (int)'A' && c <= (int)'Z')));
 }

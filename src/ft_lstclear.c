@@ -6,7 +6,7 @@
 /*   By: lflorrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 17:44:15 by lflorrie          #+#    #+#             */
-/*   Updated: 2020/10/28 17:44:16 by lflorrie         ###   ########.fr       */
+/*   Updated: 2020/11/01 13:21:20 by lflorrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 		return ;
 	if (*lst == NULL)
 		return ;
-	while ((*lst)->next)
+	while ((*lst))
 	{
 		temp = *lst;
 		*lst = (*lst)->next;
 		del(temp->content);
 		free(temp);
+		temp = NULL;
 	}
 }

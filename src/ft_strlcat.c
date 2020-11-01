@@ -6,7 +6,7 @@
 /*   By: lflorrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 17:31:35 by lflorrie          #+#    #+#             */
-/*   Updated: 2020/10/28 17:31:36 by lflorrie         ###   ########.fr       */
+/*   Updated: 2020/11/01 15:22:17 by lflorrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ size_t	ft_strlcat(char *dest, const char *src, size_t n)
 		}
 		dest[i + len] = '\0';
 	}
-	return ft_strlen(src);
+	return (ft_strlen(src));
 }

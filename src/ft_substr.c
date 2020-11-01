@@ -6,15 +6,15 @@
 /*   By: lflorrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 17:37:19 by lflorrie          #+#    #+#             */
-/*   Updated: 2020/10/28 17:37:34 by lflorrie         ###   ########.fr       */
+/*   Updated: 2020/11/01 15:34:41 by lflorrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-char*	ft_substr(const char *s, unsigned int start, size_t len)
+char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
-	char*	res;
+	char	*res;
 	size_t	i;
 
 	if (s == NULL)

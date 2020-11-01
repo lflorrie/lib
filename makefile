@@ -1,5 +1,5 @@
 
-FLAGS = -Wall -Wextra
+FLAGS = -Wall -Wextra -Werror
 SRC = ft_atoi.c \
 	ft_bzero.c \
 	ft_calloc.c \
@@ -9,7 +9,6 @@ SRC = ft_atoi.c \
 	ft_isdigit.c \
 	ft_isprint.c \
 	ft_itoa.c \
-	ft_main.c \
 	ft_memccpy.c \
 	ft_memchr.c \
 	ft_memcmp.c \
@@ -45,23 +44,27 @@ SRC = ft_atoi.c \
 	ft_lstclear.c \
 	ft_lstiter.c \
 	ft_lstmap.c
-NAME = libft
+NAME = libft.a
 
 SRCS = $(addprefix src/, $(SRC))
 OBJ = $(SRC:.c=.o)
 INCLUDE = include/
 
-all: compile run
+
+all: compile $(NAME)
+
+$(NAME):
+	ar -rcs $(NAME) $(OBJ)
 
 compile:
-	@gcc -c $(SRCS) $(FLAGS)
+	@gcc -c $(SRCS) $(FLAGS) -I$(INCLUDE)
 
-run:
+link:
 	@gcc -o $(NAME) $(OBJ) -I$(INCLUDE)
 
 clean:
-	rm $(OBJ)
+	rm -rf $(OBJ)
 fclean: clean
-	rm $(NAME)
+	rm -rf $(NAME)
 
-re: clean run
+re: fclean compile $(NAME)

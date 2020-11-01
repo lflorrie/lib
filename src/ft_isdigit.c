@@ -6,11 +6,11 @@
 /*   By: lflorrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 17:30:16 by lflorrie          #+#    #+#             */
-/*   Updated: 2020/10/28 17:30:17 by lflorrie         ###   ########.fr       */
+/*   Updated: 2020/11/01 15:01:19 by lflorrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
-	return c >= '0' && c <= '9';
+	return (c >= '0' && c <= '9');
 }

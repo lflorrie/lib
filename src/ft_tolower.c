@@ -6,11 +6,11 @@
 /*   By: lflorrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 17:32:21 by lflorrie          #+#    #+#             */
-/*   Updated: 2020/10/28 17:32:41 by lflorrie         ###   ########.fr       */
+/*   Updated: 2020/11/01 15:29:37 by lflorrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_tolower(int c)
+int	ft_tolower(int c)
 {
 	if (c >= (int)'A' && c <= (int)'Z')
 	{
