@@ -18,6 +18,8 @@ void	*ft_memcpy(void *dist, void *source, size_t n)
 	char	*d;
 	char	*s;
 
+	if (dist == NULL || source == NULL)
+		return (NULL);
 	d = (char*)dist;
 	s = (char*)source;
 	i = 0;

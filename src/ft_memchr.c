@@ -25,5 +25,7 @@ void	*ft_memchr(const void *src, int c, size_t n)
 			return ((void*)(s + i));
 		++i;
 	}
+	if ((unsigned char)c == '\0')
+		return ((void*)(s + i));
 	return (NULL);
 }
