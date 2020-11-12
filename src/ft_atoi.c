@@ -6,7 +6,7 @@
 /*   By: lflorrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 17:29:20 by lflorrie          #+#    #+#             */
-/*   Updated: 2020/11/01 14:58:04 by lflorrie         ###   ########.fr       */
+/*   Updated: 2020/11/12 17:31:35 by lflorrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_atoi(const char *str)
 {
-	long int		res;
-	long int		sign;
+	long long		res;
+	long long		sign;
 
 	sign = 1;
 	while (*str == ' ' || (*str >= 9 && *str <= 13))

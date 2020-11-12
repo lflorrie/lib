@@ -6,7 +6,7 @@
 /*   By: lflorrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 17:33:07 by lflorrie          #+#    #+#             */
-/*   Updated: 2020/11/01 15:26:51 by lflorrie         ###   ########.fr       */
+/*   Updated: 2020/11/12 17:32:35 by lflorrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ char	*ft_strdup(const char *str)
 	char	*res;
 
 	length = 0;
-	if (str == NULL)
-		return (NULL);
 	while (str[length])
 	{
 		++length;

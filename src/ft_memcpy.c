@@ -6,7 +6,7 @@
 /*   By: lflorrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 17:26:17 by lflorrie          #+#    #+#             */
-/*   Updated: 2020/11/01 15:15:05 by lflorrie         ###   ########.fr       */
+/*   Updated: 2020/11/12 16:55:02 by lflorrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memcpy(void *dist, void *source, size_t n)
 	char	*d;
 	char	*s;
 
-	if (dist == NULL || source == NULL)
+	if (dist == NULL && source == NULL)
 		return (NULL);
 	d = (char*)dist;
 	s = (char*)source;
