@@ -6,7 +6,7 @@
 /*   By: lflorrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 17:39:52 by lflorrie          #+#    #+#             */
-/*   Updated: 2020/11/01 15:32:42 by lflorrie         ###   ########.fr       */
+/*   Updated: 2020/11/13 18:00:41 by lflorrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,12 @@ char			*ft_itoa(int nn)
 		sign = 1;
 		n = -n;
 	}
-	if (!(result = (char*)malloc((i) * sizeof(char))))
+	if (!(result = (char*)malloc((i) * sizeof(char) + 1)))
 		return (NULL);
 	result[i] = '\0';
 	while (i > 0)
 	{
-		--i;
-		result[i] = (char)(n % 10 + '0');
+		result[--i] = (char)(n % 10 + '0');
 		n /= 10;
 	}
 	if (sign)

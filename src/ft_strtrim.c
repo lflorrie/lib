@@ -6,7 +6,7 @@
 /*   By: lflorrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 17:39:31 by lflorrie          #+#    #+#             */
-/*   Updated: 2020/11/12 19:06:37 by lflorrie         ###   ########.fr       */
+/*   Updated: 2020/11/13 15:02:28 by lflorrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 char	*ft_strtrim(const char *s1, const char *set)
 {
-	size_t	start;
-	size_t	end;
+	int		start;
+	int		end;
 
 	if (set == NULL || s1 == NULL)
 		return (NULL);
 	end = ft_strlen(s1);
 	if (end == 0 || ft_strlen(set) == 0)
-		return ("");
+		return ((char*)ft_calloc(1, sizeof(char)));
 	start = 0;
 	while (ft_strchr(set, s1[start]))
 	{
@@ -33,7 +33,7 @@ char	*ft_strtrim(const char *s1, const char *set)
 	}
 	if (end - start < 0)
 	{
-		return ((char*)ft_calloc(sizeof(char), 1));
+		return ((char*)ft_calloc(1, sizeof(char)));
 	}
 	return (ft_substr(s1, start, end - start));
 }

@@ -6,7 +6,7 @@
 /*   By: lflorrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 15:38:52 by lflorrie          #+#    #+#             */
-/*   Updated: 2020/11/01 15:38:56 by lflorrie         ###   ########.fr       */
+/*   Updated: 2020/11/13 14:43:04 by lflorrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 
 void				ft_putnbr_fd(int n, int fd);
+
+void				*ft_calloc(size_t nmemb, size_t size);
 
 char				*ft_itoa(int n);
 

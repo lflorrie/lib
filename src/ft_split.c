@@ -6,13 +6,51 @@
 /*   By: lflorrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 17:39:43 by lflorrie          #+#    #+#             */
-/*   Updated: 2020/11/01 15:37:40 by lflorrie         ###   ########.fr       */
+/*   Updated: 2020/11/13 18:47:11 by lflorrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-char	**ft_split(const char *s, char c)
+static void	ft_free_all(char **ar)
+{
+	int i;
+
+	i = 0;
+	while (ar[i] != NULL)
+	{
+		free(ar[i]);
+		++i;
+	}
+	free(ar);
+}
+
+static int	ft_count_words(const char *s, char c)
+{
+	int len;
+	int i;
+
+	i = 0;
+	len = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
+			++len;
+		++i;
+	}
+	return (len);
+}
+
+static void	telo(const char *s, char c, int *start, int *i)
+{
+	*i = 0;
+	while (s[(*start)] == c)
+		++(*start);
+	while (s[(*start) + (*i)] != c && s[(*start) + (*i)] != '\0')
+		++(*i);
+}
+
+char		**ft_split(const char *s, char c)
 {
 	int		len;
 	int		start;
@@ -20,29 +58,22 @@ char	**ft_split(const char *s, char c)
 	int		j;
 	char	**res;
 
-	i = 0;
-	len = 0;
-	while (s[i] != '\0')
-	{
-		if (s[i] == c && s[i + 1] != c)
-			++len;
-		i++;
-	}
-	len++;
+	if (s == NULL)
+		return (NULL);
+	len = ft_count_words(s, c);
 	if (!(res = (char**)malloc(sizeof(char*) * (len + 1))))
 		return (NULL);
 	start = 0;
-	i = 0;
-	j = 0;
-	while (j < len)
+	j = -1;
+	while (++j < len)
 	{
-		while (s[start + i] != c && s[start + i] != '\0')
+		telo(s, c, &start, &i);
+		if (!(res[j] = ft_substr(s, start, i)))
 		{
-			++i;
+			ft_free_all(res);
+			return (NULL);
 		}
-		res[j] = ft_substr(s, start, i);
 		start += i + 1;
-		++j;
 	}
 	res[len] = NULL;
 	return (res);

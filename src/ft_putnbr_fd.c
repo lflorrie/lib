@@ -6,7 +6,7 @@
 /*   By: lflorrie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 17:40:45 by lflorrie          #+#    #+#             */
-/*   Updated: 2020/11/12 18:54:36 by lflorrie         ###   ########.fr       */
+/*   Updated: 2020/11/13 16:44:48 by lflorrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	ft_pow(int num, int exp)
 	return (res);
 }
 
-void		ft_putnbr_fd(int n, int fd)
+static void	ft_nbr(int n, int fd)
 {
 	int		len;
 	int		i;
@@ -35,16 +35,6 @@ void		ft_putnbr_fd(int n, int fd)
 
 	i = n;
 	len = 1;
-	if (n == -2147483648)
-	{
-		write(fd, "-2147483648", 11);
-		return ;
-	}
-	if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		n = -n;
-	}
 	while (i / 10 != 0)
 	{
 		++len;
@@ -58,4 +48,19 @@ void		ft_putnbr_fd(int n, int fd)
 		ft_putchar_fd(ch, fd);
 		++i;
 	}
+}
+
+void		ft_putnbr_fd(int n, int fd)
+{
+	if (n == -2147483648)
+	{
+		write(fd, "-2147483648", 11);
+		return ;
+	}
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		n = -n;
+	}
+	ft_nbr(n, fd);
 }
