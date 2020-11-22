@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lflorrie <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/11/13 19:05:34 by lflorrie          #+#    #+#              #
+#    Updated: 2020/11/13 21:35:30 by lflorrie         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 FLAGS = -Wall -Wextra -Werror
 SRC = ft_atoi.c \
 	ft_bzero.c \
@@ -19,7 +31,6 @@ SRC = ft_atoi.c \
 	ft_putnbr_fd.c \
 	ft_putstr_fd.c \
 	ft_strchr.c \
-	ft_strcpy.c \
 	ft_strdup.c \
 	ft_strjoin.c \
 	ft_strlcat.c \
@@ -33,8 +44,8 @@ SRC = ft_atoi.c \
 	ft_substr.c \
 	ft_split.c \
 	ft_tolower.c \
-	ft_toupper.c \
-	ft_lstnew.c \
+	ft_toupper.c
+BONUS = ft_lstnew.c \
 	ft_lstadd_front.c \
 	ft_lstsize.c \
 	ft_lstlast.c \
@@ -44,26 +55,23 @@ SRC = ft_atoi.c \
 	ft_lstiter.c \
 	ft_lstmap.c
 NAME = libft.a
-.PHONY:all $(NAME) clean fclean re
-SRCS = $(addprefix src/, $(SRC))
+.PHONY:all clean fclean re bonus
 OBJ = $(SRC:.c=.o)
-INCLUDE = include/
+OBJ_BONUS = $(BONUS:.c=.o)
+all: $(NAME)
 
+bonus: $(OBJ_BONUS) $(OBJ)
+	ar -rcs $(NAME) $(OBJ) $(OBJ_BONUS)
 
-all: compile $(NAME)
-
-$(NAME):
+$(NAME): $(OBJ)
 	ar -rcs $(NAME) $(OBJ)
 
-compile:
-	@gcc -c $(SRCS) $(FLAGS) -I$(INCLUDE)
-
-link:
-	@gcc -o $(NAME) $(OBJ) -I$(INCLUDE)
+%.o:%.c
+	gcc $(FLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJ)
+	rm -rf $(OBJ) $(OBJ_BONUS)
 fclean: clean
 	rm -rf $(NAME)
 
-re: fclean compile $(NAME)
+re: fclean $(NAME)
