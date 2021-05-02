@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   calloc.c                                           :+:      :+:    :+:   */
+/*   ft_array_len.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lflorrie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lflorrie <lflorries@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/28 17:32:51 by lflorrie          #+#    #+#             */
-/*   Updated: 2020/11/13 14:46:02 by lflorrie         ###   ########.fr       */
+/*   Created: 2021/03/20 22:31:00 by lflorrie          #+#    #+#             */
+/*   Updated: 2021/03/20 22:31:04 by lflorrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+int	ft_array_len(char **arr)
 {
-	void	*res;
-	size_t	i;
-	char	*p_res;
+	int	i;
 
-	res = (void *)malloc(size * nmemb);
-	if (!res)
-		return (NULL);
 	i = 0;
-	p_res = (char *)res;
-	while (i < nmemb * size)
-	{
-		p_res[i] = 0;
+	if (arr == NULL)
+		return (i);
+	while (arr[i] != NULL)
 		++i;
-	}
-	return (res);
+	return (i);
 }

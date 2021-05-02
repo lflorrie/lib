@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   calloc.c                                           :+:      :+:    :+:   */
+/*   ft_count_words.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lflorrie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lflorrie <lflorries@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/28 17:32:51 by lflorrie          #+#    #+#             */
-/*   Updated: 2020/11/13 14:46:02 by lflorrie         ###   ########.fr       */
+/*   Created: 2021/03/29 23:17:01 by lflorrie          #+#    #+#             */
+/*   Updated: 2021/03/29 23:17:17 by lflorrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+int	ft_count_words(const char *s, char c)
 {
-	void	*res;
-	size_t	i;
-	char	*p_res;
+	int	len;
+	int	i;
 
-	res = (void *)malloc(size * nmemb);
-	if (!res)
-		return (NULL);
 	i = 0;
-	p_res = (char *)res;
-	while (i < nmemb * size)
+	len = 0;
+	while (s[i] != '\0')
 	{
-		p_res[i] = 0;
+		if (s[i + 1] == c || s[i + 1] == '\0')
+			++len;
 		++i;
 	}
-	return (res);
+	return (len);
 }

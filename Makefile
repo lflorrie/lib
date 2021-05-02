@@ -6,7 +6,7 @@
 #    By: lflorrie <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/13 19:05:34 by lflorrie          #+#    #+#              #
-#    Updated: 2020/11/13 21:35:30 by lflorrie         ###   ########.fr        #
+#    Updated: 2020/12/21 18:13:26 by lflorrie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,13 @@ SRC = ft_atoi.c \
 	ft_substr.c \
 	ft_split.c \
 	ft_tolower.c \
-	ft_toupper.c
+	ft_toupper.c \
+	get_next_line.c \
+	ft_count_words.c \
+	ft_array_len.c \
+	ft_free_words.c \
+	ft_list_to_array.c \
+
 BONUS = ft_lstnew.c \
 	ft_lstadd_front.c \
 	ft_lstsize.c \
@@ -56,21 +62,30 @@ BONUS = ft_lstnew.c \
 	ft_lstmap.c
 NAME = libft.a
 .PHONY:all clean fclean re bonus
+
 OBJ = $(SRC:.c=.o)
-OBJ_BONUS = $(BONUS:.c=.o)
+
+DEP = $(SRC:.c=.d)
+
+OBJ_BONUS = $(BONUS:.c=.o) $(SRC:.c=.o)
+
 all: $(NAME)
 
-bonus: $(OBJ_BONUS) $(OBJ)
-	ar -rcs $(NAME) $(OBJ) $(OBJ_BONUS)
+bonus:
+	@make OBJ="$(OBJ_BONUS)" all
 
 $(NAME): $(OBJ)
-	ar -rcs $(NAME) $(OBJ)
+	ar -rcs $(NAME) $?
 
 %.o:%.c
 	gcc $(FLAGS) -c $< -o $@
+	$(CC) -MM $(FLAGS) $< > $*.d
+
+-include $(OBJ:.o=.d)
 
 clean:
-	rm -rf $(OBJ) $(OBJ_BONUS)
+	rm -rf $(OBJ) $(OBJ_BONUS) $(DEP)
+
 fclean: clean
 	rm -rf $(NAME)
 

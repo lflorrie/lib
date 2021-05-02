@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   calloc.c                                           :+:      :+:    :+:   */
+/*   ft_free_words.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lflorrie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lflorrie <lflorries@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/28 17:32:51 by lflorrie          #+#    #+#             */
-/*   Updated: 2020/11/13 14:46:02 by lflorrie         ###   ########.fr       */
+/*   Created: 2021/03/29 23:23:05 by lflorrie          #+#    #+#             */
+/*   Updated: 2021/03/29 23:27:33 by lflorrie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	ft_free_words(char **ar)
 {
-	void	*res;
-	size_t	i;
-	char	*p_res;
+	int	i;
 
-	res = (void *)malloc(size * nmemb);
-	if (!res)
-		return (NULL);
 	i = 0;
-	p_res = (char *)res;
-	while (i < nmemb * size)
+	while (ar[i] != NULL)
 	{
-		p_res[i] = 0;
+		free(ar[i]);
 		++i;
 	}
-	return (res);
+	free(ar);
 }

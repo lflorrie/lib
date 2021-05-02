@@ -87,7 +87,7 @@ char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 char				**ft_split(const char *s, char c);
 
-typedef struct		s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -110,6 +110,16 @@ void				ft_lstclear(t_list **lst, void (*del)(void*));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
-					void (*del)(void *));
+						void (*del)(void *));
+
+int					get_next_line(int fd, char **line);
+
+int					ft_array_len(char **arr);
+
+int					ft_count_words(const char *s, char c);
+
+void				ft_free_words(char **ar);
+
+char				**ft_list_to_array(t_list *lst);
 
 #endif
